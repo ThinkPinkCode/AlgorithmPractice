@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/codeJamPractice.iml" filepath="$PROJECT_DIR$/codeJamPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algorithmPractice.iml" filepath="$PROJECT_DIR$/algorithmPractice.iml" />
     </modules>
   </component>
 </project>

@@ -8,13 +8,10 @@ public class mjmLibrary {
 
 //----- codejam methods-----
 
-  public void processInputFile(String fileName) throws IOException {
+  public int processInputFile(String fileName) throws IOException {
     Scanner file = loadFile(fileName);
     int numOfCases = file.nextInt() + 1;
-
-    for (int i = 0; i < numOfCases; i++) {
-      //put what's needed for each case here
-    }
+    return numOfCases;
   }
 
   public static Scanner loadFile(String fileName) throws IOException {

@@ -1,61 +1,88 @@
 package com.melaniejmyers;
 
+//10/25/17 notes for continuing: working ok for one case, need to find way to extend to work for multiple cases. then need to work with actual file instead of hardcoded input
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 import static java.lang.Math.pow;
 
 public class IOchallenge {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        
+         Scanner inputFile = processInputFile("/Users/melanie.myers/Code/codeJamPractice/src/com/melaniejmyers/A-small-practice.in");
+         int numOfCases = captureNumOfCases(inputFile);
+         
+        StringBuilder outputFileTest = new StringBuilder();
 
-        //load input file
+        for (int i=0; i < numOfCases; i++){   //for each test case (sentence)
 
-        //capture t  (# of test cases)
-        int t = 10;                                                                                                         //TODO: take out hardcode
 
-        //for each test case (sentence)
-        for (int i=0; i <= t; i++){
 
-            //create answer string
-            String caseAnswer = "Case #" + i + ":";
-
-            // capture B (number of letters in the string to be translated)
-            int B= 10;                                                                                                  //TODO: will need to take out this hardcode
+            // capture provided  numOfLetters (number of letters in the string to be translated)
+            int numOfLetters= inputFile.nextInt();
 
             // capture sentence to be translated
-            String beforeSentence = "";
+            String startingSentence = inputFile.next();
 
             // convert I,O to 1's and 0's
-
-            beforeSentence = beforeSentence.replace("I","1");
-            beforeSentence = beforeSentence.replace("O","0");
+            startingSentence = startingSentence.replace("I","1");
+            startingSentence = startingSentence.replace("O","0");
 
             //create sentence output string
-            String translatedSentence = "";
+            StringBuilder translatedSentence = new StringBuilder();
 
-            //convert binary number to digital number            // <--- but is this really necessary? Why not convert directly to number?
+            //convert binary number to digital number
 
-            for (int j=0; j <= B; j+=7){                                    //for every byte in the beforeSentence
-                String myByte = beforeSentence.substring(j, j+7);                 // take 8 characters
+            for (int j=0; j < (numOfLetters * 8); j+=8){                                 //for every byte in the startingSentence
+                String myByte = startingSentence.substring(j, j+8);                 // take 8 characters
                 int decVal = 0;                                             //start with decimal value of 0
-                for (int k=0; k < B; k++) {                                //for each character in the byte
+                for (int k=0; k <8; k++) {                                //for each character in the byte
                     char digitToEval = myByte.charAt(k);                   //take a character
+                    int exponent = 7 - k;
                     if (digitToEval == '1') {                              //check if it is a 1 or 0
-                        decVal += pow(2, k);                               // if it's a 1, use the power of 2, then add to decimal total
+                        decVal += pow(2, exponent);                               // if it's a 1, use the power of 2, then add to decimal total
                     }
                 }
-                //return decimal value
-
-                //convert to letter (create a table/small db to look it up in?)
-
-                //add letter to translatedSentence
+                char newLetter = (char)decVal;
+                translatedSentence.append(newLetter);
             }
-            // caseAnswer += translatedSentence
 
-            // add caseAnswer to output file
+            //create answer string
+            String caseAnswer = "Case #" + (i + 1) + ":" + translatedSentence + "\n";
+
+            outputFileTest.append(caseAnswer);
         }
 
-        //create/print output file
+        createOutputFile(outputFileTest);
     }
 
+    public static Scanner processInputFile(String fileName) throws IOException {
+        Scanner file = loadFile(fileName);
+        return file;
+    }
+
+    public static Scanner loadFile(String fileName) throws IOException {
+        File incomingFile = new File(fileName);
+        return new Scanner(incomingFile);
+    }
+
+    public static int captureNumOfCases (Scanner file){
+        int numOfCases = file.nextInt();
+        return numOfCases;
+    }
+
+    public static void createOutputFile(StringBuilder outputText) throws IOException{
+        String outputTextAsString = outputText.toString();
+        File outFile = new File ("output.txt");
+        FileWriter fWriter = new FileWriter (outFile);
+        PrintWriter outputFile = new PrintWriter(fWriter);
+        outputFile.write(outputTextAsString);
+    }
 
 }
 
