@@ -1,4 +1,4 @@
-package com.melaniejmyers.question1;
+package question1;
 
 import java.io.*;
 import java.util.Scanner;
