@@ -10,7 +10,7 @@ public class answer1 {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner inputFile = processInputFile("/Users/melanie.myers/Code/codeJamPractice/src/com/melaniejmyers/sampleInput.in");
+        Scanner inputFile = processInputFile("/Users/melanie.myers/Code/codeJamPractice/src/com/melaniejmyers/sampleInput1.in");
         int numOfCases = captureNumOfCases(inputFile);
 
         StringBuilder outputFileText = new StringBuilder();
@@ -63,7 +63,7 @@ public class answer1 {
     }
 
     public static void createOutputFile(String outputText) throws IOException{
-        PrintWriter out = new PrintWriter("output.txt");
+        PrintWriter out = new PrintWriter("sampleOutput1.txt");
         out.println(outputText);
         out.close();
     }

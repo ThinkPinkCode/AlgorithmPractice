@@ -20,7 +20,7 @@ public class mjmLibrary {
   }
 
   public static PrintWriter createOutputFile() throws IOException{
-    File outFile = new File ("output.txt");
+    File outFile = new File ("sampleOutput1.txt");
     FileWriter fWriter = new FileWriter (outFile);
     return new PrintWriter (fWriter);
   }
