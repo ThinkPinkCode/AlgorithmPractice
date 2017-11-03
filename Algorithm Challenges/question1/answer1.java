@@ -1,12 +1,16 @@
 package question1;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
 
 public class answer1 {
+
+
 
     public static void main(String[] args) throws IOException {
 
@@ -16,7 +20,6 @@ public class answer1 {
         StringBuilder outputFileText = new StringBuilder();
 
         for (int i=0; i <= numOfCases; i++){
-            if(inputFile.hasNext()) {
                 int numOfLetters = Integer.parseInt(inputFile.nextLine());
                 String startingSentence = inputFile.nextLine();
 
@@ -40,10 +43,8 @@ public class answer1 {
                     translatedSentence.append(newLetter);
                 }
                 outputFileText.append("Case #" + (i +1) + ": " + translatedSentence + "\n");
-            }
         }
         String outputFileTextAsString= outputFileText.toString();
-        System.out.println(outputFileTextAsString);
         createOutputFile(outputFileTextAsString);
     }
 

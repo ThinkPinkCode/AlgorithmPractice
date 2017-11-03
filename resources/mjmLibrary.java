@@ -4,15 +4,32 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class mjmLibrary {
 
 //----- codejam methods-----
 
-  public int processInputFile(String fileName) throws IOException {
-    Scanner file = loadFile(fileName);
-    int numOfCases = file.nextInt() + 1;
-    return numOfCases;
+
+  public static void setupFile (String fileName) throws IOException {
+    Scanner inputFile = processInputFile(fileName);
+    int numOfCases = captureNumOfCases(inputFile);
+    StringBuilder outputFileText = new StringBuilder();
   }
+
+
+  public static int captureNumOfCases (Scanner file){
+    String numOfCases = file.nextLine();
+    return parseInt(numOfCases);
+  }
+
+
+ //--------
+
+ public static Scanner processInputFile(String fileName) throws IOException {
+   Scanner file = loadFile(fileName);
+   return file;
+ }
 
   public static Scanner loadFile(String fileName) throws IOException {
     File incomingFile = new File(fileName);
