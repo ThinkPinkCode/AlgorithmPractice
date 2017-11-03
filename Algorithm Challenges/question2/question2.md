@@ -51,7 +51,7 @@ All answers are guaranteed to fit in a 32-bit signed integer.
 
 All answers are guaranteed to fit in a 64-bit signed integer.
 
-##Sample
+## Sample
 
 
 
