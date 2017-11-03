@@ -57,11 +57,16 @@ All answers are guaranteed to fit in a 64-bit signed integer.
 
 
 | Input | Output |
+
 | --- | --- | 
-|4 | Case #1:8 | 
-|1 1 |Case #2: 2   |
-| 1 0 |Case #3: 256 |
-|255 0 | Case #4: 1 0 0 |
+
+|4 | Case #1 8 | 
+
+|1 1 |Case #2 2   |
+
+| 1 0 |Case #3 256 |
+
+|255 0 | Case #4 1 0 0 |
 	
 
 
