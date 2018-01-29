@@ -3,7 +3,7 @@ import java.io.File
 object mjmLibrary {
 
     /*
-    Code Jam Instructions
+    Remember these instructions:
     1. create new copy of this file
     1. change input file path in processProblem()
     2. define processLine() (what we need to do for each line)
