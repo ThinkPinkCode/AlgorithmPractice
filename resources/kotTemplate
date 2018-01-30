@@ -3,7 +3,7 @@ import java.io.File
 object mjmLibrary {
 
     /*
-    Remember these instructions:
+    Code Jam Instructions
     1. create new copy of this file
     1. change input file path in processProblem()
     2. define processLine() (what we need to do for each line)
@@ -23,6 +23,8 @@ object mjmLibrary {
         lines.removeAt(0)
         for(i in lines){
             var caseOutput = processLine(i)
+
+                    //TODO: Before implementing need to add case count printing
             File("C:\\Users\\mmyers1\\IdeaProjects\\CodeJamPractice\\output.txt").appendText(caseOutput)
         }
     }
